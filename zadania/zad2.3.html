@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body text="yellow">
+
+<div style="background-color: darkmagenta; border: black solid; width: 25%; height: 50%;">KALKULATOR
+<br><br>
+    <form action="zad2.3.php" method="post">
+        <div>PROSTY
+            <div>
+                <br>
+            <input type="text" name="num1" placeholder="Liczba1" required>
+            <input type="text" name="num2" placeholder="Liczba2" required>
+            <select name="mathOperation" required>
+                <option value="add">Dodawanie</option>
+                <option value="sub">Odejmowanie</option>
+                <option value="mult">Mnozenie</option>
+                <option value="div">Dzielenie</option>
+            </select>
+
+            <input type="submit" value="Oblicz">
+            </div>
+        </div>
+</form>
+
+<br><div style="width: 100%; height: 0%; border: white dashed"></div><br>
+
+    <form action="zad2.3.php" method="post">
+        <div>ZAAWANSOWANY
+            <div>
+                <br>
+                <input type="text" name="num3" placeholder="Liczba1" required>
+                <select name="mathOperationAdv" required>
+                    <option value="cos">Cosinus</option>
+                    <option value="sin">Sinus</option>
+                    <option value="tg">Tangens</option>
+                    <option value="bTd">Binarne na dziesietne</option>
+                    <option value="dTb">Dziesietne na binarne</option>
+                    <option value="dTh">Dziesietne na szesnastkowe</option>
+                    <option value="hTd">Szesnastkowe na dziesietne</option>
+                    <option value="degTrad">Stopnie na radiany</option>
+                    <option value="radTdeg">Radiany na stopnie</option>
+                </select>
+                <input type="submit" value="Oblicz">
+            </div>
+        </div>
+</form>
+</div>
+<footer>
+    M.K. @2021
+</footer>
+</body>
+</html>

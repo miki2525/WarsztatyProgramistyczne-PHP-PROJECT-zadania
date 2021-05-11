@@ -1,0 +1,20 @@
+email1@o2.pl, Pass12, imie, nazwisko1
+========================================
+email2@o2.pl, Pass22, imie2, nazwisko2
+========================================
+email3@o2.pl, HASLO123, imie3, nazwisko3
+========================================
+email4@o2.pl, HASLO123, mkflz, vmklcx
+========================================
+fmsdaf@o2.pl, FDSAF!@#$123, fdsa, fasd
+========================================
+fmsdaf@o2.pldfd, FDSAFSAD23412, dfas, fasdf
+========================================
+fmsfdsadaf@o2.pldfd, FDSAFSAD23412, dfas, fasdf
+========================================
+dsfasdf@o2.pldfd, FDSAFSAD23412, dfas, fasdf
+========================================
+dsfasdf@o2.pldfddfsa, FDSAFSAD23412, dfas, fasdf
+========================================
+byby@o2.pl, BYBY1234, fas, ffsadf
+========================================

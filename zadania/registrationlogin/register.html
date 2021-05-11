@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Zarejestruj sie</h1>
+<form action="save.php", method="post">
+    <label>imie:</label><input type="text" name="imie" required>
+    <br><br>
+    <label>nazwisko:</label><input type="text" name="nazwisko" required>
+    <br><br>
+    <label>e-mail:</label><input type="email" name="mail" required>
+    <br><br>
+    <label>haslo:</label><input type="text" name="haslo" required pattern="^(?=.*[A-Z])(?=.*[0-9]).{6,}$">
+    <br><br>
+    <input type="submit">
+</form>
+
+<br>
+<p style="font-size: 11px">haslo musi skladac sie z co najmniej 6 znakow, co  najmniej 1 wielkiej litery oraz cyfry.</p>
+<p>lub <a href="index1.html">zaloguj sie</a></p>
+</body>
+</html>

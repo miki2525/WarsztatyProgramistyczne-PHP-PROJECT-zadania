@@ -1,0 +1,19 @@
+<?php
+session_destroy();
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="index2.php", method="post">
+    <label>login:</label><input type="email" name="mail" required>
+    <label>haslo:</label><input type="text" name="haslo" required>
+    <input type="submit">
+</form>
+
+<br>
+<p style="font-size: 11px">haslo musi skladac sie z co najmniej 6 znakow, co  najmniej 1 wielkiej litery oraz cyfry.</p>
+<p>nie masz konta? <a href="register.html">zarejestruj sie</a></p>
+</body>
+</html>
