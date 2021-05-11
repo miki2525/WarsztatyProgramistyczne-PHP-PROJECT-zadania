@@ -12,3 +12,8 @@ Możliwość dodawania, edycji oraz usuwania użytkowników z poziomu administra
 Walidacja pól formularza, zwłaszcza rejestracyjnego i poziomu siły hasła
 Importowanie oraz eksportowanie danych z pliku .csv z poziomu administratora
 Wczytanie do bazy danych danych z podanego pliku .csv.
+
+HTML + CSS + JS (JQuery, Bootstrap),
+PHP,
+MySQL
+
