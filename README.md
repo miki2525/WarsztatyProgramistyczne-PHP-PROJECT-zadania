@@ -12,7 +12,7 @@ Ma możliwość rejestracji użytkownika oraz posiada konto administratora.
 * Walidacja pól formularza, zwłaszcza rejestracyjnego i poziomu siły hasła<br>
 * Importowanie oraz eksportowanie danych z pliku .csv z poziomu administratora<br>
 * Wczytanie do bazy danych danych z podanego pliku .csv.
-----------------------------------------------------------------------------------------
+- - - - - -
 HTML + CSS + JS (JQuery, Bootstrap),<br>
 PHP,<br>
 MySQL
