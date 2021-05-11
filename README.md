@@ -3,8 +3,8 @@
 Aplikacja ma na celu zbieranie danych o osobach i ich kartach kredytowych.
 Ma możliwość rejestracji użytkownika oraz posiada konto administratora.
 
-Funkcjonalności:
-Rejestracja użytkownika, dodająca do serwisu użytkownika<br>
+Funkcjonalności:<br>
+* Bullet listRejestracja użytkownika, dodająca do serwisu użytkownika<br>
 Usunięcie użytkownika przez zarejestrowanego użytkownika<br>
 Edycja danych użytkownika przez zarejestrowanego użytkownika<br>
 Utworzenie konta administratora dla całego serwisu<br>
