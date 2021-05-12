@@ -1,0 +1,19 @@
+
+.col-8 img{
+    box-shadow: 15px 5px 40px greenyellow, 10px 10px 40px grey; 
+}
+
+.col-8 img:hover{
+    box-shadow: 15px 5px 40px greenyellow, 10px 10px 40px white; 
+}
+
+.col-2 a{
+    border-bottom: 0px solid greenyellow;
+    transition: border-width 0.3s ease-out;
+}
+
+.col-2 a:hover{
+    text-decoration: none;
+    border-width: 4px;
+}
+
