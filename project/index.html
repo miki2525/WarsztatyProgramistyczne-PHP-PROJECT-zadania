@@ -11,32 +11,50 @@
     <script src="static/js/index.js"></script>
     <script src="static/js/visitNewPage.js"></script>
 </head>
+        
 <body>
-    
     <header>
-    <div class="row bg-secondary align-items-start">
-        <div class="col-8">
-            <a href="index.html" class="text-light"><img src="static/img/logo.jpg"></a> 
+        <div class="row bg-secondary align-items-start">
+            <div class="col-8">
+                <a href="index.html" class="text-light"><img src="static/img/logo.jpg"></a> 
+            </div>
+            <div class="col-2 text-right">
+                <button class="bg-secondary text-light btn border-left border-right" id="loginbtn">Zaloguj się</button>
+            </div>
+            <div class="col-2 text-left">
+                <a class="bg-secondary text-light btn border-left border-right" href="index.html">Zarejestruj się</a>
+            </div>
         </div>
-        <div class="col-2 text-right">
-            <a href="index.html" class="text-light">Zaloguj się</a>
-        </div>
-        <div class="col-2 border-left text-left">
-            <a href="index.html" class="text-light">Zarejestruj się</a>
-        </div>
-    </div>
     </header>
     
     <div class="jumbotron text-center">
         <h1>Witaj, na stronie RegCard</h1>
         <div class="pt-5">
             <p>Aplikacja zbiera statystyki na temat kart płatniczych i ich użytkowników</p>
-            <button>Załóż konto</button>
+            <a class="btn btn-outline-secondary" href="index.html">Załóż konto</a>
+        </div>
+    </div>
+    
+    <div class="jumbotron text-center" id="loginpan">
+        <h1>Podaj dane do logowania</h1>    
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <form>
+                    <input type="text" class="form-control" placeholder="adres e-mail">
+                    <br>
+                    <input type="text" class="form-control" placeholder="hasło">
+                    <br>
+<!--$MESSAGE         <?php echo "<p style="color: red">Niepoprawne dane logowania</p><br>" ?>-->
+                    <button class="btn btn-success"><a href="index.html"></a>ZALOGUJ</button>
+                </form>
+                <br>
+                <label>Nie masz konta? <a href="index.html"> Załóż je!</a></label>
+            </div>
         </div>
     </div>
     
     
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 text-center">
@@ -52,7 +70,7 @@
             <img src="static/img/american.jpg">
             </div>
         </div>
-        
+<!--COUNTER-->
         <div class="row">
             <div class="col-3 pt-5 count text-center">
             24329489
@@ -68,6 +86,6 @@
             </div>
         </div>
     </div>
-
+<!--COUNTER-->
 </body>
 </html>
