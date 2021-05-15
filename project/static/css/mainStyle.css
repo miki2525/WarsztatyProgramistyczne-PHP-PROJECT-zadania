@@ -4,7 +4,7 @@
 }
 
 .col-8 img:hover, .col-4 img:hover{
-    box-shadow: 15px 5px 40px greenyellow, 10px 10px 40px white; 
+    box-shadow: 15px 5px 40px greenyellow, 10px 10px 40px grey;
 }
 
 .col-2 button, .col-2 a{
@@ -19,3 +19,5 @@
 #loginpan{
     display: none;
 }
+
+

@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["cardtype"])){
+if(isset($_POST)){
     print_r($_POST);
 }
 else{
