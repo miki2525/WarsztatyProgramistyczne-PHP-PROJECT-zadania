@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegCard</title>
+    <link rel="stylesheet" href="static/css/mainStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="js/regvalidation.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="row bg-secondary align-items-start">
+        <div class="col-8">
+            <a href="index.html" class="text-light"><img src="static/img/logo.jpg"></a>
+        </div>
+        <div class="col-4 text-right">
+            <a href="index.html" class="text-light"><img src="static/img/logo.jpg"></a>
+        </div>
+    </div>
+</header>
+
+<div class="jumbotron text-center">
+    <h1>Stwórz konto uzupełniając poniższe pola</h1>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form action="registerform.php" method="post" onsubmit="return validate()">
+                <input type="text" name="firstname" id="name" class="form-control" placeholder="Imię">
+                <br>
+                <input type="text" name="surname" id="surname" class="form-control" placeholder="Nazwisko">
+                <br>
+                <input type="text" name="mail" id="mail" class="form-control" placeholder="Adres e-mail">
+                <br>
+                <input type="password" name="pass"  id="pass" class="form-control" placeholder="Hasło">
+                <p style="font-size: 10px; color: forestgreen"> Hasło musi składać się z co najmniej 6 znaków, co  najmniej 1 wielkiej litery, 1 małej litery oraz cyfry.</p>
+                <select class="form-control" name="gender" id="gender">
+                    <option value="" selected disabled>Płeć</option>
+                    <option value="male">Mężczyzna</option>
+                    <option value="female">Kobieta</option>
+                    <option value="other">Inne</option>
+                </select>
+                <br>
+                <select class="form-control" name="cardtype" id="cardtype">
+                    <option value="" selected disabled>Typ karty płatniczej</option>
+                    <option value="visa">Debetowa</option>
+                    <option value="master">Kredytowa</option>
+                    <option value="discover">Obciążeniowa</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" name="cardnum" id="cardnum" placeholder="Numer karty">
+                <br>
+                <!--$MESSAGE         <?php echo "<p style="color: red">Niepoprawne dane logowania</p><br>" ?>-->
+                <input type="submit" class="btn btn-success" value="Założ konto">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
