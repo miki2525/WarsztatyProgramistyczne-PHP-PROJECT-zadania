@@ -6,4 +6,5 @@ if(isset($_POST)){
 }
 else{
     echo "nie ma posta";
+    /////setcoockie(registered ,failed!) return to registration with msg failuer
 }
