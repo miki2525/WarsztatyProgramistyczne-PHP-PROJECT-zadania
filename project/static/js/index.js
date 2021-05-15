@@ -21,6 +21,13 @@ $(document).ready(function () {
          });
      }
 
+    if(document.cookie.indexOf("logout") != -1){
+        $(".jumbotron").eq(1).hide();
+        $(".jumbotron").eq(0).show();
+        $("header > .row > .text-right")
+            .append("<p style='font-size: 20px; color: red'><STRONG>WYLOGOWANO POMYŚLNIE!</STRONG></p>");
+    }
+
     
     /*COUNTER*/
     
