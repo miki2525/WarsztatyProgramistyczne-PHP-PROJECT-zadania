@@ -1,0 +1,86 @@
+
+#paddlelock{
+    height: 40%;
+}
+
+
+.button{
+    background-color: lightgray;
+    border: 15px double yellowgreen;
+}
+.btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.Welcome{
+    font-size: 20px;
+}
+
+.Welcome p:nth-child(1){
+    font-weight: bold;
+}
+
+.on{
+    color: white;
+    font-weight: bold;
+    cursor: default;
+    background-color : yellowgreen;
+    transform: translateY(-7px);
+    box-shadow: 1px 1px 2px grey, 5px 0 25px grey, 5px 5px 5px grey;
+}
+
+.on:hover{
+    opacity: 1;
+}
+
+input[type=date], input[type=text]{    
+    width: 20%;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 1px 2px 2px 2px grey;
+}
+
+input::-webkit-calendar-picker-indicator, -moz-appearance {
+    cursor: pointer;
+  }
+
+input[type=date]:focus, input[type=text]:focus{
+    background-color: yellowgreen;
+    color: white;
+    font-weight: bold;
+}
+    
+.form{
+    display: none;       
+    border-left: 3px dashed slategrey;
+    border-right: 3px dashed slategrey;
+}
+
+.form div:first-child{
+    overflow-x: auto;
+}
+
+th:hover{
+    cursor: crosshair;
+}
+table tr:not(tr:first-child):hover{
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.selected{
+    background-color: lightgreen;
+}
+
+    @media (max-width:1100px) and (min-width:600px)
+{
+    input[type=date], label {
+        margin-top: 10px;
+        display: flex;
+    }
+    input[type=date], input[type=text]{
+        width: 100%;
+    }
+
+    }

@@ -1,30 +1,3 @@
-<?php
-session_start();
-if(isset($_POST["login"]) && isset($_POST["pass"])){
-    //////connect to db and check credentials////////
-    ///if login and pass ok start_session() + flag is ok and show the view
-    ///get object Person from DB, welcome using name
-    /// select * from Osoba where login=POSTlogin AND pass=POSTpass
-    if ($_POST["login"] == "user" && $_POST["pass"] == "user"){
-        //////ID dla panelu admina
-        $_SESSION["login"] = $_POST["login"];
-        $_SESSION["pass"] = $_POST["pass"];
-        $_SESSION["firstname"] = "Jacek";
-        $_SESSION["surnname"] = "Kowalski";
-        $_SESSION["gender"] = "Inne";
-        $_SESSION["cardType"] = "Kredytowa";
-        $_SESSION["cardNum"] = "4445152671891";
-
-    }
-    else{
-        header("Location: index.html");
-        setcookie("login", "failed", time() + 1);
-    }
-
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
