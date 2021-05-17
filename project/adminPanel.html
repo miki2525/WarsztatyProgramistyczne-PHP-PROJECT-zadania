@@ -47,21 +47,26 @@
 <!--        zaladować na wejscu baze, wyszukaj użytkownika, edytuj, usun, importuj plik, zapisz do pliku-->
     </div>
 
-    <div class="form p-4">
+    <div class="content p-4 container">
 <!--    Select * from Person load using php(link)-->
-        <div><button>NOWY</button></div>
-        <div><table class="table"><tr class="table-primary"><th>Row#</th><th>ID</th><th>Imie</th><th>Nazwisko</th><th>Email</th>
+        
+        <div class="row mb-3"><button class="btn-success">NOWY</button></div>
+        
+        <div class="row"><table class="table"><tr class="table-primary"><th>Row#</th><th>ID</th><th>Imie</th><th>Nazwisko</th><th>Email</th>
             <th>Płeć</th><th>Typ karty</th><th>Numer karty</th><th>Wydawca</th></tr>
-            <tr><td>1</td><td>1</td><td>Jacek</td><td>Kowalski</td><td>jacek@mail</td><td>Inne</td><td>debit</td><td>4447489013457812</td><td>MasterCard</td></tr><tr><td>2</td><td>2</td><td>Jacek</td><td>Kowalski</td><td>jacek2@mail</td><td>Inne</td><td>debit</td><td>4447489013457812</td><td>MasterCard</td></tr></table></div>
-        <div class="btn-toolbar" role="toolbar" aria-label="btn toolbar">
-            <div class="btn-group" role="group" aria-label="first">
-                <button type="button" class="btn-primary">EYTUJ</button>
-                <button type="button" class="btn">USUN</button>
-            </div>
-            <div class="btn-group" role="group" aria-label="second">
-                <button type="button" class="btn">Zaladuj plik</button>
-                <button type="button" class="btn">Eksportuj plik</button>
-            </div>
+            <tr><td></td><td>1</td><td>Jacek</td><td>Kowalski</td><td>jacek@mail</td><td>Inne</td><td>debit</td><td>4447489013457812</td><td>MasterCard</td></tr><tr><td></td><td>2</td><td>Jacek</td><td>Kowalski</td><td>jacek2@mail</td><td>Inne</td><td>debit</td><td>4447489013457812</td><td>MasterCard</td></tr></table></div>
+        
+        <div class="row mt-5">
+            <div class="col-6"><button type="button" class="col-6 btn-info">EDYTUJ</button></div>
+            <div class="col-6 text-right"><button type="button" class="col-6 btn-danger ml-5">USUN</button></div>
+        </div>
+        
+        <div class="row mt-5">
+        <form class="col-12">
+            <div><label class="ml-5">Załaduj plik z danymi</label><input type="file" class="ml-2 mb-3" name="upload">
+             <label class="ml-5">Pobierz plik z danymi</label><input type="file" class="ml-2" name="download"></div>
+            <div><input class="mt-2 btn btn-secondary" type="submit" value="PRZETWÓRZ"></div>
+        </form>
         </div>
     </div>
 

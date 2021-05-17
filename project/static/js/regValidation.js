@@ -2,6 +2,7 @@ window.onload = function () {
 
     $("#formReg").on("click", validateReg);
     $("#cardnum").on("keyup", checkCard);
+    $("#pass").on("keyup", passwordStrenght);
 
 
     function validateReg(e) {
@@ -46,6 +47,35 @@ window.onload = function () {
         }
         return true;
 
+    }
+
+    function passwordStrenght(){
+        var passwordValue = $("#pass").val();
+        const strong = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
+        const medium = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|' +
+            '((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))');
+
+
+
+        if (strong.test(passwordValue)){
+            $("#strenght").addClass("visible");
+            $("#strenght").text("MOCNE HASŁO!")
+        }
+
+        else if (medium.test(passwordValue)){
+            $("#strenght").addClass("visible");
+            $("#strenght").text("ŚREDNIE HASŁO!")
+        }
+
+        else {
+            $("#strenght").addClass("visible");
+            $("#strenght").text("SŁABE HASŁO!")
+        }
+
+        if (passwordValue.length <= 0) {
+            $("#strenght").removeClass("visible");
+            $("#strenght").text("$");
+        }
     }
 
     function checkCard(){

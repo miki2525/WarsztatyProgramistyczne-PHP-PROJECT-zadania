@@ -1,0 +1,15 @@
+#strenght{
+    color: red;
+    font-size: 98%;
+    visibility: hidden;
+}
+
+.visible{
+    display: inline;
+}
+
+.icon{
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}

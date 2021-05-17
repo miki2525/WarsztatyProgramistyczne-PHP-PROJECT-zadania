@@ -51,13 +51,13 @@ input[type=date]:focus, input[type=text]:focus{
     font-weight: bold;
 }
     
-.form{
+.content{
     display: none;       
     border-left: 3px dashed slategrey;
     border-right: 3px dashed slategrey;
 }
 
-.form div:first-child{
+.content .row:nth-child(2) {
     overflow-x: auto;
 }
 
