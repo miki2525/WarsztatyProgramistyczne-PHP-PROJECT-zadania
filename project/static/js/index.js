@@ -8,10 +8,12 @@ $(document).ready(function () {
          .css("font-size", "150%");
 
      if(document.cookie.indexOf("login") != -1){
+         console.log("cookie");
          $(".jumbotron").eq(0).hide();
          $(".jumbotron").eq(1).show();
-         $("#loginpan > div > div > form > button").
+         $("#loginpan > div > div > form > .btn").
          before("<p style='color: red'><strong>Niepoprawny login lub hasło</strong></p>");
+
      }
 
      else {
