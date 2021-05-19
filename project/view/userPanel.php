@@ -1,10 +1,11 @@
 <?php
 include("../model/User.php");
-session_start();
+
 
 if(!empty($_POST["login"]) &&
     !empty($_POST["pass"])){
-    ////authorization with mysql
+    ////authorization with mysql(if ok, proceed) else setookie
+    session_start();
     echo ($_POST["login"]);
     $_SESSION["firstname"] = "user"; /////normally from Session = user from db
     $_SESSION["email"] = "user"; ////// same above
@@ -17,7 +18,7 @@ if(!empty($_POST["login"]) &&
 }
 else{
     header("Location: index.html");
-    setcookie("login", "false", time() + 1);
+    setcookie("login", "false", time() + 5);
 }
 ?>
 

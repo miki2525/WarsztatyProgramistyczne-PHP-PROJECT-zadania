@@ -1,0 +1,2 @@
+->	user edition register form for userPanel + adminPAnel
+->	.csv reading(loading data to table) + writing(downloading table with data) - potem jak juz bedzie DB to ladowac do bazy danych
