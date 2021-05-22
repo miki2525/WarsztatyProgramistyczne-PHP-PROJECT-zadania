@@ -5,52 +5,58 @@ window.onload = function () {
     });
 
     $("table tr:not(:first)").on("click", function (){
+        $("tr").removeClass("selected");
         $(this).toggleClass(" selected");
         $(this).children('td').each(function(i){
         });
     });
 
-    $("#paddlelock").on("click", function () {
-
-        var data = Array();
-        $("table tr.selected").each(function (i) {
-            data[i] = Array();
-            $(this).children('td').each(function (ii) {
-                data[i][ii] = $(this).text();
-            });
-        });
-        console.log(data);
+    $("#new").on("click", function () {
+        $(".editForm").show();
     });
 
+    $("#edit").on("click", function () {
 
-    enableSorting();
-    $(".Welcome").css("display", "none");
-    hideContent();
-    showContent(0);
+        var data = Array();
+        $("table tr.selected").children('td').each(function (i){
+            data[i] = $(this).text();
+        });
+        /////fetch do bazy z numerem id data[1];
+        if (data.length > 0){
+            $(".editForm").show();
+            let index = 2;
+            for (let i = 0; i < 3; i++){
+                $(".editForm form").children('input').eq(i).val(data[index++]);
+            }
+            $("#gender").children("option:selected").text(data[index++]);
+            $("#cardtype").children("option:selected").text(data[index++]);
+            $("#cardnum").val(data[index++]);
+            }
+        });
 
-        var button = document.getElementsByClassName("button");
-        button[0].addEventListener("click", function () {
+
+    $("#upload").on("change", function (){
+        $("#send").show();
+    })
+
+
+    var button = document.getElementById("manageUsers");
+    button.addEventListener("click", function () {
                 $(".Welcome").css("display", "none");
                 hideContent();
-                showContent(i);
+                showContent();
+                enableSorting();
             });
 
 
-    function showContent(index) {
-        $(".text").eq(index).show("slow");
-        $(".content").eq(index).slideDown("slow");
-        switch (index) {
-            case 0: $("#submit0").unbind().click(getWeightDetails);
-            break;
-
-            case 1: $("#submit1").unbind().click(getAirportDetails);
-            break;
-        }
+    function showContent() {
+        $(".text").show("slow");
+        $(".content").slideDown("slow");
     }
 
     function hideContent() {
-            $(".button").eq(0).hide();
-            $(".text").eq(0).hide("slow");
+            $("#manageUsers").hide();
+            $(".text").hide("slow");
     }
 
     function enableSorting() {

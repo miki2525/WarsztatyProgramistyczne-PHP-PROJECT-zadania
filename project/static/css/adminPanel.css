@@ -4,7 +4,7 @@
 }
 
 
-.button{
+#manageUsers{
     background-color: lightgray;
     border: 15px double yellowgreen;
 }
@@ -50,6 +50,10 @@ input[type=date]:focus, input[type=text]:focus{
     color: white;
     font-weight: bold;
 }
+
+#send{
+    display: none;
+}
     
 .content{
     display: none;       
@@ -72,6 +76,11 @@ table tr:not(tr:first-child):hover{
 .selected{
     background-color: lightgreen;
 }
+
+.editForm{
+    display: none;
+}
+
 
     @media (max-width:1100px) and (min-width:600px)
 {
