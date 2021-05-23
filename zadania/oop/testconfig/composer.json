@@ -1,0 +1,9 @@
+{
+  "name": "vendor_name/oop",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "require": {
+    "vendor/phpunit/phpunit": "9.5.4"
+  }
+}
