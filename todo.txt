@@ -2,3 +2,4 @@
 -> create table with records
 -> mysql connect
 -> obsluga button - USUN
+-> mail()

@@ -1,9 +1,11 @@
 {
-  "name": "vendor_name/oop",
+  "name": "vendor_name/testconfig",
   "description": "description",
   "minimum-stability": "stable",
   "license": "proprietary",
+  "authors": [
+  ],
   "require": {
-    "vendor/phpunit/phpunit": "9.5.4"
+    "phpunit/phpunit": "9.5.4"
   }
 }

@@ -44,7 +44,7 @@
   </component>
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings load_method="PHPUNIT_PHAR" configuration_file_path="$PROJECT_DIR$/oop/composer.json" custom_loader_path="$PROJECT_DIR$/oop/vendor/autoload.php" phpunit_phar_path="$PROJECT_DIR$/../../../../../../../../Program Files/php/bin/phpunit.phar" />
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/oop/composer.json" custom_loader_path="$PROJECT_DIR$/oop/testconfig/vendor/autoload.php" phpunit_phar_path="$PROJECT_DIR$/oop/testconfig/phpunit.phar" />
     </phpunit_settings>
   </component>
 </project>

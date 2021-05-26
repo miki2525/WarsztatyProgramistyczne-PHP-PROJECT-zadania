@@ -32,8 +32,8 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '5115084b66ab1c9eb6d13f5272fd5f6e009e5247',
-    'name' => 'vendor_name/oop',
+    'reference' => '8c726ca60c3d5ea6b0362db7177234be0cf0d2da',
+    'name' => 'vendor_name/testconfig',
   ),
   'versions' => 
   array (
@@ -338,14 +338,14 @@ private static $installed = array (
       ),
       'reference' => '75a63c33a8577608444246075ea0af0d052e452a',
     ),
-    'vendor_name/oop' => 
+    'vendor_name/testconfig' => 
     array (
       'pretty_version' => 'dev-master',
       'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '5115084b66ab1c9eb6d13f5272fd5f6e009e5247',
+      'reference' => '8c726ca60c3d5ea6b0362db7177234be0cf0d2da',
     ),
     'webmozart/assert' => 
     array (
