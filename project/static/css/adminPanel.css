@@ -82,6 +82,7 @@ table tr:not(tr:first-child):hover{
 }
 
 
+
     @media (max-width:1100px) and (min-width:600px)
 {
     input[type=date], label {

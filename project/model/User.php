@@ -9,9 +9,11 @@ class User{
     private $gender;
     private $cardType;
     private $cardNum;
-    private $PaymentNetwork;
+    private $paymentNetwork;
+    private $password;
 
-    public function __construct($firstname, $surname, $email, $gender, $cardType, $cardNum, $PaymentNetwork)
+
+    public function __construct($firstname, $surname, $email, $gender, $cardType, $cardNum, $paymentNetwork, $password)
     {
         $this->firstname = $firstname;
         $this->surname = $surname;
@@ -19,7 +21,8 @@ class User{
         $this->gender = $gender;
         $this->cardType = $cardType;
         $this->cardNum = $cardNum;
-        $this->PaymentNetwork = $PaymentNetwork;
+        $this->paymentNetwork = $paymentNetwork;
+        $this->password = $password;
     }
 
 
@@ -114,14 +117,28 @@ class User{
 
     public function getPaymentNetwork()
     {
-        return $this->PaymentNetwork;
+        return $this->paymentNetwork;
     }
 
 
-    public function setPaymentNetwork($PaymentNetwork)
+    public function setPaymentNetwork($paymentNetwork)
     {
-        $this->PaymentNetwork = $PaymentNetwork;
+        $this->PaymentNetwork = paymentNetwork;
     }
+
+
+    public function getPassword()
+{
+    return $this->password;
+}
+
+
+    public function setPassword($password)
+{
+    $this->password = $password;
+}
+
+
 
 
 

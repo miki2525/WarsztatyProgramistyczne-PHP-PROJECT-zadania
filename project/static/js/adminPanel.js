@@ -1,8 +1,13 @@
 window.onload = function () {
 
-    $("table tr:not(:first)").each(function (i){
+    $("table:not(.csvTable) tr:not(:first)").each(function (i){
         $(this).children().eq(0).text(++i);
     });
+
+    $(".csvTable tr:not(:first)").each(function (i){
+        $(this).children().eq(0).text(++i);
+    });
+
 
     $("table tr:not(:first)").on("click", function (){
         $("tr").removeClass("selected");
@@ -57,6 +62,7 @@ window.onload = function () {
     function hideContent() {
             $("#manageUsers").hide();
             $(".text").hide("slow");
+            $(".csvTable").hide();
     }
 
     function enableSorting() {
