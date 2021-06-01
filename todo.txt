@@ -1,5 +1,4 @@
-->	writing(downloading table with data) - potem jak juz bedzie DB to ladowac do bazy danych
 -> create table with records
 -> mysql connect
--> obsluga button - USUN
+-> obsluga button - USUN w admin panel i userpanel
 -> mail()

@@ -53,8 +53,7 @@ window.onload = function () {
         var passwordValue = $("#pass").val();
         const strong = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
         const medium = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|' +
-            '((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))');
-
+            '((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}))');
 
 
         if (strong.test(passwordValue)){
@@ -120,7 +119,7 @@ window.onload = function () {
 
         if (gotIcon){
             $(this).addClass("icon");
-            $(this).css("background-image", "url(static/img/" + icon + ")");
+            $(this).css("background-image", "url(../static/img/" + icon + ")");
         }
         else {
             $(this).css("background-image", "");

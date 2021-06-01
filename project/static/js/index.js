@@ -8,7 +8,6 @@ $(document).ready(function () {
          .css("font-size", "150%");
 
      if(document.cookie.indexOf("login") != -1){
-         console.log("cookie");
          $(".jumbotron").eq(0).hide();
          $(".jumbotron").eq(1).show();
          $("#loginpan > div > div > form > .btn").
@@ -24,6 +23,7 @@ $(document).ready(function () {
      }
 
     if(document.cookie.indexOf("logout") != -1){
+        console.log("logout")
         $(".jumbotron").eq(1).hide();
         $(".jumbotron").eq(0).show();
         $("header > .row > .text-right")

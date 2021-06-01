@@ -1,5 +1,11 @@
 <?php
 include("../controller/userPanelController.php");
+
+if (isset($_GET["logout"])){
+    session_destroy();
+    header("Location: index.html");
+    setcookie("logout", "success", time() + 5);
+}
 ?>
 
 
@@ -31,7 +37,7 @@ include("../controller/userPanelController.php");
             </a>
         </div>
         <div class="col-1 text-right">
-            f<a href="../logout.php?logout=true"><button>WYLOGUJ
+            <a href="userPanel.php?logout=true"><button>WYLOGUJ
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -61,13 +67,13 @@ include("../controller/userPanelController.php");
             </div>
             <div class="row"><label class="col-6 border-right border-secondary">Typ karty: <?php echo $_SESSION["cardType"]?></label><label class="col-6">Numer karty: <?php echo $_SESSION["cardNum"]?></label>
             </div>
-            <div class="row"> <label class="col-8"></label><?php echo ">" ?></div>
+            <div class="row"> <label class="col-8"></label><?php echo "<img src='../static/img/master.jpg'>" ?></div>
         </div>
     </div>
 
 
     <div class="0 form p-4">
-        <form action="../editForm.php" method="post">
+        <form action="../controller/editForm.php" method="post">
             <label>Imię:</label>
             <input type="text" name="firstname" id="name" class="form-control" placeholder="Imię" value=<?php echo "\"" . $_SESSION["firstname"] . "\""?>>
             <br>

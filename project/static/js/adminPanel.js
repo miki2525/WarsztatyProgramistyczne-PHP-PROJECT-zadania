@@ -18,7 +18,16 @@ window.onload = function () {
 
     $("#new").on("click", function () {
         $(".editForm").show();
+        let index = 2;
+        for (let i = 0; i < 3; i++){
+            $(".editForm form").children('input').eq(i).val("");
+        }
+        $("#gender").children("option:selected").text("");
+        $("#cardtype").children("option:selected").text("");
+        $("#cardnum").val("");
     });
+
+
 
     $("#edit").on("click", function () {
 

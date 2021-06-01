@@ -57,7 +57,7 @@ if(isset($_GET["path"])){
 
         else {
             session_destroy();
-            echo "Nieprawidlowe dane <a href='../adminlog.html'> Wroc </a>";
+            echo "Nieprawidlowe dane <a href='../view/adminlog.html'> Wroc </a>";
         }
 
 ?>
