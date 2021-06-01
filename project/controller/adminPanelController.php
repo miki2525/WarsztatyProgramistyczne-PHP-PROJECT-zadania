@@ -2,7 +2,7 @@
 include("../model/User.php");
 session_start();
 
-if(isset($_POST["wyslij"])){
+if(isset($_POST["showFile"])){
     $fileName = $_FILES["upload"]["tmp_name"];
     if ($_FILES["upload"]["size"] > 0) {
 
@@ -15,8 +15,16 @@ if(isset($_POST["wyslij"])){
 
             array_push($userList, $user);
         }
-        $_SESSION["upload"] = "true";
+        $_SESSION["upload"] = $userList;
     }
+}
+
+if(isset($_POST["sendFileToDb"])){
+    $userList = $_SESSION["upload"];
+    /////save do TO DB if success echo cookie success
+    unset($_SESSION["upload"]);
+    header("Location: adminPanelController.php");
+    setcookie("zapisano", "true", time() + 2);
 }
 
         if (!empty($_SESSION["login"])) {

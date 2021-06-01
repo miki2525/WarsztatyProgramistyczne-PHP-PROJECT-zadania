@@ -9,7 +9,7 @@ window.onload = function () {
     });
 
 
-    $("table tr:not(:first)").on("click", function (){
+    $("table:not(.csvTable) tr:not(:first)").on("click", function (){
         $("tr").removeClass("selected");
         $(this).toggleClass(" selected");
         $(this).children('td').each(function(i){
@@ -53,6 +53,10 @@ window.onload = function () {
                 enableSorting();
             });
 
+    if(document.cookie.indexOf("zapisano") != -1){
+            $("header").append("<h2 style='color: red; text-align: center'>ZAPISANO POMYŚLNIE DO BAZY</h2>");
+            setTimeout(function (){$("h2").remove()}, 2000);
+    }
 
     function showContent() {
         $(".text").show("slow");

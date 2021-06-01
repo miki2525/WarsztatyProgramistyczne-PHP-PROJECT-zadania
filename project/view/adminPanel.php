@@ -68,7 +68,7 @@
         <div class="row mt-5">
             <form method="post" action="../controller/adminPanelController.php" enctype="multipart/form-data">
                 <div><label class="ml-5">Załaduj plik z danymi</label><input type="file" class="ml-2 mb-3" accept=".csv" name="upload" id="upload">
-                    <input class="mt-2 btn btn-secondary" type="submit" value="Wyślij plik" name="wyslij" id="send">
+                    <input class="mt-2 btn btn-secondary" type="submit" value="Pokaż plik" name="showFile" id="send">
                 </div>
             </form>
         </div>
@@ -90,7 +90,7 @@
     ><table class="table csvTable"><tr class="table-primary"><th>Row#</th><th>Imie</th><th>Nazwisko</th><th>Email</th>
                 <th>Płeć</th><th>Typ karty</th><th>Numer karty</th><th>System płatniczy</th><th>Hasło</th></tr>
                 <?php
-                if(isset($_POST["wyslij"])) {
+                if(isset($_POST["showFile"])) {
                         if (empty($userList)){
                             echo "<tr>Błąd przesłania pliku</tr>";
                         }
@@ -114,9 +114,9 @@
 
         </table>
         <div class="csvTable row mt-2 ml-5 col-11 text-right">
-            <a class="mb-1 col-12 text-right" href="#">
-                <button class="btn btn-success">Zapisz do bazy</button>
-            </a>
+            <form class="mb-1 col-12 text-right" method="post", action="../controller/adminPanelController.php">
+                <input type="submit" class="btn btn-success" name="sendFileToDb" value="Zapisz do bazy">
+            </form>
         </div>
     </div>
 
