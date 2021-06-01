@@ -2,6 +2,8 @@
 include("../model/User.php");
 session_start();
 
+
+
 if(isset($_POST["showFile"])){
     $fileName = $_FILES["upload"]["tmp_name"];
     if ($_FILES["upload"]["size"] > 0) {
@@ -23,8 +25,23 @@ if(isset($_POST["sendFileToDb"])){
     $userList = $_SESSION["upload"];
     /////save do TO DB if success echo cookie success
     unset($_SESSION["upload"]);
+    unset($_POST["sendFileToDb"]);
+    unset($_POST["showFile"]);
     header("Location: adminPanelController.php");
     setcookie("zapisano", "true", time() + 2);
+}
+
+if(isset($_GET["path"])){
+    $fileName = "../static/" . $_GET["path"];
+    ////fopen and wrtie sqlresult to file if !emptysqlresult
+    header('Content-Type: application/octet-stream');
+    header('Content-Description: File Transfer');
+    header('Content-Disposition: attachment; filename="'.basename($fileName).'"');
+    header('Content-Length: ' . filesize($fileName));
+
+    readfile($fileName);
+//    unlink($fileName); delete the file after download
+    unset($_GET["path"]);
 }
 
         if (!empty($_SESSION["login"])) {
@@ -39,6 +56,7 @@ if(isset($_POST["sendFileToDb"])){
         }
 
         else {
+            session_destroy();
             echo "Nieprawidlowe dane <a href='../adminlog.html'> Wroc </a>";
         }
 

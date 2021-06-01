@@ -74,7 +74,7 @@
         </div>
 
         <div class="row mt-5">
-            <a class="ml-5 col-11 text-right" href="#">
+            <a class="ml-5 col-11 text-right" href="../controller/adminPanelController.php?path=data.csv">
                 <button class="btn btn-success">Pobierz plik z danymi</button>
             </a>
         </div>

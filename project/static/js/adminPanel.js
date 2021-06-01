@@ -47,6 +47,7 @@ window.onload = function () {
 
     var button = document.getElementById("manageUsers");
     button.addEventListener("click", function () {
+
                 $(".Welcome").css("display", "none");
                 hideContent();
                 showContent();
