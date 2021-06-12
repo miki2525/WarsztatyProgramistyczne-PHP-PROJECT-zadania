@@ -119,6 +119,7 @@ if (isset($_GET["logout"])){
                             }
                         }
                 }
+                unset($_POST["showFile"]);
                 ?>
 
         </table>

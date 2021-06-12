@@ -1,6 +1,6 @@
 <?php
 include("../model/User.php");
-
+include("../util/queries.php");
 session_start();
 
 if(!empty($_SESSION["email"]) &&

@@ -64,7 +64,7 @@ window.onload = function () {
             });
 
     if(document.cookie.indexOf("zapisano") != -1){
-            $("header").append("<h2 style='color: red; text-align: center'>ZAPISANO POMYŚLNIE DO BAZY</h2>");
+            $("header").append("<h2 style='color: #ff0000; text-align: center'>ZAPISANO POMYŚLNIE DO BAZY</h2>");
             setTimeout(function (){$("h2").remove()}, 2000);
     }
 
