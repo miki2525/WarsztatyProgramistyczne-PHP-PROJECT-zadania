@@ -2,6 +2,10 @@
 include("../model/User.php");
 include("../util/queries.php");
 session_start();
+$servername = "localhost";
+$username = "guest";
+$password = "hasloGUEST";
+$dbname = "wprg";
 
 if(!empty($_SESSION["email"]) &&
 !empty($_SESSION["pass"])){
@@ -11,7 +15,9 @@ if(!empty($_SESSION["email"]) &&
 elseif (!empty($_POST["login"]) &&
 !empty($_POST["pass"])){
 
+
 ////authorization with mysql(if ok, proceed) else setookie
+
 $_SESSION["firstname"] = "user"; /////normally from Session = user from db
 $_SESSION["email"] = "user"; ////// same above
 $_SESSION["cardType"] = "user"; ////// same above
