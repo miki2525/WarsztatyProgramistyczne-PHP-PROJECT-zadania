@@ -1,0 +1,11 @@
+{
+  "name": "vendor_name/testconfig",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+  ],
+  "require": {
+    "phpunit/phpunit": "9.5.4"
+  }
+}

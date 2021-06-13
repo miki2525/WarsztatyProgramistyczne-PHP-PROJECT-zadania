@@ -4,6 +4,7 @@ include ("Cars.php");
 include ("Queries.php");
 
 session_start();
+
 function tryCreateTable($conn)
 {
     if ($conn->connect_error) {
@@ -56,9 +57,33 @@ $username = "root";
 $password = "hasloBAZA20157";
 $dbname = "stepik";
 
+if (isset($_GET["sortByPrice"])){
+    if($_SESSION["sortByPrice"] == "DESC") {
+        $_SESSION["sortByPrice"] = "ASC";
+    }
+    else{
+        $_SESSION["sortByPrice"] = "DESC";
+    }
+    $_SESSION["sortByName"] = "TRUE";
+    unset($_GET["sortByPrice"]);
+}
+
+if (isset($_GET["sortByName"])){
+    if($_SESSION["sortByName"] == "DESC") {
+        $_SESSION["sortByName"] = "ASC";
+    }
+    else{
+        $_SESSION["sortByName"] = "DESC";
+    }
+    $_SESSION["sortByPrice"] = "TRUE";
+    unset($_GET["sortByName"]);
+}
+
 ?>
 
 <html>
+<link rel="stylesheet" href="forms.css">
+<link rel="stylesheet" href="table.css">
 <body>
 <form action="#" method="post">
     <input type="submit" name="create" value="Tworz tabelki">
@@ -134,11 +159,31 @@ if (isset($_POST["insertCar"])){
 </form>
 <br><br>
 <?php
-if (isset($_GET["show"])){
+if (isset($_GET["show"])) {
+    $_SESSION["show"] = "TRUE";
+    $_SESSION["sortByPrice"] = "TRUE";
+    $_SESSION["sortByName"] = "TRUE";
+    unset($_GET["show"]);
+}
+
+if (isset($_SESSION["show"])){
 $sql = new mysqli($servername, $username, $password, $dbname);
 
-     $result = $sql->query(Queries::$selectAll);
-
+       if ($_SESSION["sortByPrice"] == "DESC") {
+           $result = $sql->query(Queries::$sortByPriceDesc);
+       }
+       elseif ($_SESSION["sortByPrice"] == "ASC"){
+           $result = $sql->query(Queries::$sortByPriceAsc);
+       }
+        elseif ($_SESSION["sortByName"] == "DESC") {
+        $result = $sql->query(Queries::$sortByPriceDesc);
+    }
+        elseif ($_SESSION["sortByName"] == "ASC"){
+        $result = $sql->query(Queries::$sortByPriceAsc);
+    }
+    else {
+    $result = $sql->query(Queries::$selectAll);
+    }
 if ($result->num_rows > 0) {
 ?>
 <table>
@@ -166,13 +211,19 @@ if ($result->num_rows > 0) {
         <td><?php echo $row['Cars_day_of_buy'];?></td>
         <td><?php echo $row['Person_id'];?> </td>
         <td><form method="post", action="process.php">
-            <input type="submit" name="delete" value="<?php echo $row['Cars_id']?>"><label>USUN</label>
-            <input type="submit" name="edit" value="<?php echo $row['Cars_id']?>"><label>EDYTUJ</label>
+            <input type="submit" name="delete" class="delete" value="<?php echo $row['Cars_id']?>"><label>USUN</label>
+            <input type="submit" name="edit" class="edit" value="<?php echo $row['Cars_id']?>"><label>EDYTUJ</label>
         </form></td>
 
        </tr>
         <?php } ?>
-</table><?php $sql->close(); unset($_POST["show"]);} ?>
+</table>
+    <form action="manageDB.php", method="get">
+        <input type="submit" name="sortByPrice" value="sortuj wg Ceny">
+        <input type="submit" name="sortByName" value="sortuj wg Imienia">
+    </form>
+    <?php $sql->close();}
+?>
 
 </body>
 </html>

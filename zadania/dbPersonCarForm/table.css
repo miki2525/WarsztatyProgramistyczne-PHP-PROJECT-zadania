@@ -1,0 +1,44 @@
+
+/* Table Styles */
+
+table{
+    margin: 0px 70px 30px;
+    box-shadow: 0px 25px 50px orangered;
+}
+
+table{
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+tr:nth-child(even) {
+    background: #F8F8F8;
+}
