@@ -1,4 +1,3 @@
--> mysql connect
--> obsluga button - USUN w admin panel i userpanel
+->obsluga plików
 -> mail()
 ->unittest

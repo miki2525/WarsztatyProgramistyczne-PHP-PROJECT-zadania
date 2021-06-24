@@ -1,9 +1,14 @@
 <?php
-
 if (isset($_GET["logout"])){
+    session_start();
+    unset($_SESSION["login"]);
+    unset($_POST["login"]);
+    unset($_POST["pass"]);
+    unset($_SESSION["login"]);
     session_destroy();
     header("Location: index.html");
     setcookie("logout", "success", time() + 5);
+    die();
 }
 ?>
 
@@ -14,6 +19,8 @@ if (isset($_GET["logout"])){
 <script src="../static/js/jquery.js"></script>
 <script src="../static/js/sortElements.js"></script>
 <script src="../static/js/adminPanel.js"> </script>
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -67,11 +74,36 @@ if (isset($_GET["logout"])){
 
         <div class="row"><table class="table"><tr class="table-primary"><th>Row#</th><th>ID</th><th>Imie</th><th>Nazwisko</th><th>Email</th>
             <th>Płeć</th><th>Typ karty</th><th>Numer karty</th><th>System płatniczy</th></tr>
-            <tr><td></td><td>1</td><td>Jacek</td><td>Kowalski</td><td>jacek@mail</td><td>Inne</td><td>debit</td><td>4447489013457812</td><td>MasterCard</td></tr><tr><td></td><td>2</td><td>Jacek</td><td>Kowalski</td><td>jacek2@mail</td><td>Inne</td><td>debit</td><td>4447489013457812</td><td>MasterCard</td></tr></table></div>
+                <?php
+
+                $mysqli = new mysqli(mysqlProperties::getServerName(), mysqlProperties::getUser(),
+                    mysqlProperties::getPassword(), mysqlProperties::getDBname());
+                $getAll = $mysqli->query(Queries::$selectAll);
+
+                while($row = $getAll->fetch_assoc()){
+                    echo "<tr>
+                                        <td></td>
+                                        <td>".$row["id"]."</td>
+                                        <td>".$row["firstname"]."</td>
+                                        <td>".$row["surname"]."</td>
+                                        <td>".$row["email"]."</td>
+                                        <td hidden>".$row["password"]."</td>
+                                        <td>".$row["gender"]."</td>
+                                        <td>".$row["cardtype"]."</td>
+                                        <td>".$row["cardnum"]."</td>
+                                      
+                                        <td>".$row["paymentnetwork"]."</td>
+                                        
+                            </tr>";
+                }
+                ?>
+</table></div>
 
         <div class="row mt-5">
             <div class="col-6"><button type="button" class="col-6 btn-info" id="edit">EDYTUJ</button></div>
-            <div class="col-6 text-right"><button type="button" class="col-6 btn-danger ml-5" id="delete">USUN</button></div>
+
+            <div class="col-6 text-right"><form action="../controller/adminPanelController.php" method="post">
+                    <input type="submit" class="col-6 btn-danger ml-5" id="delete" name="delete" value="USUŃ"></form></div>
         </div>
 
         <div class="row mt-5">
@@ -97,10 +129,11 @@ if (isset($_GET["logout"])){
         echo "style=\"display: none\"";
     } ?>
     ><table class="table csvTable"><tr class="table-primary"><th>Row#</th><th>Imie</th><th>Nazwisko</th><th>Email</th>
-                <th>Płeć</th><th>Typ karty</th><th>Numer karty</th><th>System płatniczy</th><th>Hasło</th></tr>
+                <th>Płeć</th><th>Typ karty</th><th>Numer karty</th><th>System płatniczy</th></tr>
                 <?php
+
                 if(isset($_POST["showFile"])) {
-                        if (empty($userList)){
+                         if (empty($userList)){
                             echo "<tr>Błąd przesłania pliku</tr>";
                         }
                         else{
@@ -111,14 +144,17 @@ if (isset($_GET["logout"])){
                                         <td>".$user->getSurname()."</td>
                                         <td>".$user->getEmail()."</td>
                                         <td>".$user->getGender()."</td>
+                                        <td hidden>".$user->getPassword()."</td>
                                         <td>".$user->getCardType()."</td>
                                         <td>".$user->getCardNum()."</td>
+                                        
                                         <td>".$user->getPaymentNetwork()."</td>
-                                        <td>".$user->getPassword()."</td>
+                                                               
                                       </tr>";
                             }
                         }
                 }
+                unset($_SESSION["upload"]);
                 unset($_POST["showFile"]);
                 ?>
 
@@ -131,8 +167,12 @@ if (isset($_GET["logout"])){
     </div>
 
     <div class="editForm">
+
         <div class="0 form p-4">
         <form action="../controller/editForm.php" method="post">
+            <label>ID:</label>
+            <input type="text" name="id" id="id" class="form-control" readonly>
+            <br>
             <label>Imię:</label>
             <input type="text" name="firstname" id="name" class="form-control" placeholder="Imię">
             <br>
@@ -147,15 +187,15 @@ if (isset($_GET["logout"])){
             <p style="font-size: 10px; color: forestgreen"> Hasło musi składać się z co najmniej 6 znaków, co  najmniej 1 wielkiej litery, 1 małej litery oraz cyfry.</p>
             <label>Płeć:</label>
             <select class="form-control" name="gender" id="gender">
-                <option selected disabled></option>
-                <option value="male">Mężczyzna</option>
-                <option value="female">Kobieta</option>
-                <option value="other">Inne</option>
+                <option selected></option>
+                <option value="Mężczyzna">Mężczyzna</option>
+                <option value="Kobieta">Kobieta</option>
+                <option value="Inne">Inne</option>
             </select>
             <br>
             <label>Typ karty:</label>
             <select class="form-control" name="cardType" id="cardtype">
-                <option selected disabled></option>
+                <option selected></option>
                 <option value="Debetowa">Debetowa</option>
                 <option value="Kredytowa">Kredytowa</option>
                 <option value="Obciążeniowa">Obciążeniowa</option>

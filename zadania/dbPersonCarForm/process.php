@@ -1,10 +1,9 @@
 <?php
 include ("Queries.php");
 session_start();
+$password = 'hasloBAZA20157';
 $servername = "localhost";
 $username = "root";
-$password = "hasloBAZA20157";
-$dbname = "stepik";
 
 if (isset($_POST["delete"])){
     $conn = new mysqli($servername, $username, $password, $dbname);

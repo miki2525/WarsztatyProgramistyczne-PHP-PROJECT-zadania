@@ -123,7 +123,7 @@ class User{
 
     public function setPaymentNetwork($paymentNetwork)
     {
-        $this->PaymentNetwork = paymentNetwork;
+        $this->paymentNetwork = $paymentNetwork;
     }
 
 

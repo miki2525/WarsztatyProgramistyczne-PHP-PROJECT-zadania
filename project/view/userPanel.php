@@ -2,9 +2,28 @@
 include("../controller/userPanelController.php");
 
 if (isset($_GET["logout"])){
+    session_start();
+    unset($_SESSION["login"]);
+    unset($_POST["login"]);
+    unset($_POST["pass"]);
+    unset($_SESSION["login"]);
     session_destroy();
     header("Location: index.html");
     setcookie("logout", "success", time() + 5);
+    die();
+}
+$img = $_SESSION["paymentnetwork"];
+switch ($img){
+    case "VISA": $pathToimg="visa.jpg";
+    break;
+    case "MASTERCARD": $pathToimg="master.jpg";
+    break;
+    case "DISCOVER": $pathToimg="discover.jpg";
+    break;
+    case "AMERICAN EXPRESS": $pathToimg="american.jpg";
+    break;
+    case "UNKNOWN": $pathToimg="";
+    break;
 }
 ?>
 
@@ -57,17 +76,18 @@ if (isset($_GET["logout"])){
     </div>
 
     <div class="Welcome p-4">
-        <p>Witaj, <?php echo ($_SESSION["firstname"]);?>!</p>
+        <p>Witaj, <?php echo $_SESSION["firstname"]?>!</p>
         <p>Możesz tutaj sprawdzić swoje dane, edytować je lub usunąć konto.</p>
         <br>
         <div class="border border-secondary">
-            <div class="row"><label class="col-6 border-right border-secondary">Imię: <?php echo $_SESSION["firstname"]?></label><label class="col-6">Nazwisko: <?php echo $_SESSION["surnname"]?></label>
+            <div class="row"><label class="col-6 border-right border-secondary">Imię: <?php echo $_SESSION["firstname"]?></label><label class="col-6">Nazwisko: <?php echo $_SESSION["surname"]?></label>
             </div>
-            <div class="row "><label class="col-6 border-right border-secondary">Adres e-mail: <?php echo $_SESSION["email"]?></label><label class="col-6">Płeć: <?php echo $_SESSION["gender"]?></label>
+            <div class="row "><label class="col-6 border-right border-secondary">Adres e-mail: <?php echo $_SESSION["login"]?></label><label class="col-6">Płeć: <?php echo $_SESSION["gender"]?></label>
             </div>
-            <div class="row"><label class="col-6 border-right border-secondary">Typ karty: <?php echo $_SESSION["cardType"]?></label><label class="col-6">Numer karty: <?php echo $_SESSION["cardNum"]?></label>
+            <div class="row"><label class="col-6 border-right border-secondary">Typ karty: <?php echo $_SESSION["cardtype"]?></label><label class="col-6">Numer karty: <?php echo $_SESSION["cardnum"]?></label>
             </div>
-            <div class="row"> <label class="col-8"></label><?php echo "<img src='../static/img/master.jpg'>" ?></div>
+            <div class="row"> <label class="col-8"></label><?php
+                if ($pathToimg != ""){echo "<img src='../static/img/".$pathToimg."'>";} else{}?></div>
         </div>
     </div>
 
@@ -78,32 +98,32 @@ if (isset($_GET["logout"])){
             <input type="text" name="firstname" id="name" class="form-control" placeholder="Imię" value=<?php echo "\"" . $_SESSION["firstname"] . "\""?>>
             <br>
             <label>Nazwisko:</label>
-            <input type="text" name="surname" id="surname" class="form-control" placeholder="Nazwisko" value=<?php echo "\"" . $_SESSION["surnname"] . "\""?>>
+            <input type="text" name="surname" id="surname" class="form-control" placeholder="Nazwisko" value=<?php echo "\"" . $_SESSION["surname"] . "\""?>>
             <br>
             <label>Adres e-mail:</label>
-            <input type="text" name="mail" id="mail" class="form-control" placeholder="Adres e-mail" value=<?php echo "\"" . $_SESSION["email"] . "\""?>>
+            <input type="text" name="mail" id="mail" class="form-control" placeholder="Adres e-mail" value=<?php echo "\"" . $_SESSION["login"] . "\""?>>
             <br>
             <label>Hasło:</label>
             <input type="password" name="pass"  id="pass" class="form-control" placeholder="Hasło" value=<?php echo "\"" . $_SESSION["pass"] . "\""?>>
             <p style="font-size: 10px; color: forestgreen"> Hasło musi składać się z co najmniej 6 znaków, co  najmniej 1 wielkiej litery, 1 małej litery oraz cyfry.</p>
             <label>Płeć:</label>
             <select class="form-control" name="gender" id="gender">
-                <option value=<?php echo "\"" . $_SESSION["gender"] . "\""?> selected disabled><?php echo $_SESSION["gender"]?></option>
-                <option value="male">Mężczyzna</option>
-                <option value="female">Kobieta</option>
-                <option value="other">Inne</option>
+                <option value=<?php echo "\"" . $_SESSION["gender"] . "\""?> selected><?php echo $_SESSION["gender"]?></option>
+                <option value="Mężczyzna">Mężczyzna</option>
+                <option value="Kobieta">Kobieta</option>
+                <option value="Inne">Inne</option>
             </select>
             <br>
             <label>Typ karty:</label>
             <select class="form-control" name="cardType" id="cardtype">
-                <option value=<?php echo "\"" . $_SESSION["cardType"] . "\""?> selected disabled><?php echo $_SESSION["cardType"]?></option>
+                <option value=<?php echo "\"" . $_SESSION["cardtype"] . "\""?> selected><?php echo $_SESSION["cardtype"]?></option>
                 <option value="Debetowa">Debetowa</option>
                 <option value="Kredytowa">Kredytowa</option>
                 <option value="Obciążeniowa">Obciążeniowa</option>
             </select>
             <br>
             <label>Numer karty:</label>
-            <input type="text" class="form-control" name="cardNum" id="cardnum" placeholder="Numer karty" value=<?php echo "\"" . $_SESSION["cardNum"] . "\""?>>
+            <input type="text" class="form-control" name="cardNum" id="cardnum" placeholder="Numer karty" value=<?php echo "\"" . $_SESSION["cardnum"] . "\""?>>
             <br>
             <input type="submit" class="btn-success" value="Zatwierdź" id="formReg">
         </form>
@@ -111,7 +131,9 @@ if (isset($_GET["logout"])){
 
     <div class="1 form p-4">
         <p>Czy aby napewno chcesz usunąć konto? </p>
-        <input type="submit" class="btn-danger" value="Usuń" id="formReg">
+        <form action="../controller/userPanelController.php" method="post">
+        <input type="submit" class="btn-danger" value="Usuń" name="delete">
+        </form>
     </div>
 
 

@@ -30,6 +30,14 @@ $(document).ready(function () {
             .append("<p style='font-size: 20px; color: red'><STRONG>WYLOGOWANO POMYŚLNIE!</STRONG></p>");
     }
 
+    if(document.cookie.indexOf("deleted") != -1){
+        console.log("deleted")
+        $(".jumbotron").eq(1).hide();
+        $(".jumbotron").eq(0).show();
+        $("header > .row > .text-right")
+            .append("<p style='font-size: 20px; color: red'><STRONG>USUNIĘTO KONTO!</STRONG></p>");
+    }
+
     
     /*COUNTER*/
     

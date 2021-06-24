@@ -18,8 +18,8 @@ window.onload = function () {
 
     $("#new").on("click", function () {
         $(".editForm").show();
-        let index = 2;
-        for (let i = 0; i < 3; i++){
+        let index = 0;
+        for (let i = 0; i < 5; i++){
             $(".editForm form").children('input').eq(i).val("");
         }
         $("#gender").children("option:selected").text("");
@@ -38,8 +38,8 @@ window.onload = function () {
         /////fetch do bazy z numerem id data[1];
         if (data.length > 0){
             $(".editForm").show();
-            let index = 2;
-            for (let i = 0; i < 3; i++){
+            let index = 1;
+            for (let i = 0; i < 5; i++){
                 $(".editForm form").children('input').eq(i).val(data[index++]);
             }
             $("#gender").children("option:selected").text(data[index++]);
@@ -47,6 +47,35 @@ window.onload = function () {
             $("#cardnum").val(data[index++]);
             }
         });
+
+
+    $("#delete").on("click", function () {
+        if (confirm("Czy napewno chcesz usunąć tego użytkownika?")) {
+
+            var data = Array();
+            $("table tr.selected").children('td').each(function (i) {
+                data[i] = $(this).text();
+            });
+            if (data.length > 0) {
+                $("#delete").val(data[1]);
+            }
+            else {
+                return false;
+            }
+            return true;
+        }
+        else {
+        return false;
+        }});
+
+    //             var url = "../controller/adminPanelController.php?delete=5";
+    //             // var formData = new FormData();
+    //             // formData.append("delete", 5);
+    //                 fetch(url);
+    //                     // method: "POST",
+    //                     // body: formData})
+    //                     // .then();
+    //         }}});
 
 
     $("#upload").on("change", function (){
@@ -66,6 +95,11 @@ window.onload = function () {
     if(document.cookie.indexOf("zapisano") != -1){
             $("header").append("<h2 style='color: #ff0000; text-align: center'>ZAPISANO POMYŚLNIE DO BAZY</h2>");
             setTimeout(function (){$("h2").remove()}, 2000);
+    }
+
+    if(document.cookie.indexOf("usunieto") != -1){
+        $("header").append("<h2 style='color: #ff0000; text-align: center'>USUNIĘTO UŻYTKOWNIKA</h2>");
+        setTimeout(function (){$("h2").remove()}, 2000);
     }
 
     function showContent() {

@@ -5,9 +5,6 @@ class Queries{
     public static $selectAll = "SELECT * FROM users;";
 
 
-
-
-
     public static function saveUser($fname, $sname, $mail, $gender, $cardt, $cardn, $paynet, $pass){
 
         return "INSERT INTO users(firstname, surname, email, gender, 
@@ -24,5 +21,20 @@ class Queries{
     return "SELECT email FROM users WHERE email='$email';";
 }
 
+    public static function updateUser($id, $fname, $sname, $mail, $gender, $cardt, $cardn, $paynet, $pass){
+        return "UPDATE users SET firstname='$fname',
+                 surname='$sname', 
+                 email='$mail',
+                 gender='$gender',
+                 cardtype='$cardt',
+                 cardnum='$cardn',
+                 paymentnetwork='$paynet',
+                 password='$pass'
+                WHERE id='$id';";
+    }
+
+    public static function deleteUser($id){
+        return "DELETE FROM users WHERE id='$id';";
+    }
 
 }
