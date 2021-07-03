@@ -42,6 +42,7 @@ if(isset($_POST["showFile"])){
         }
         $_SESSION["upload"] = "true";
         $_SESSION["userlist"] = $userList;
+        fclose($file);
     }
 }
 

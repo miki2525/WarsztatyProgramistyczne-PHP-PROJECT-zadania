@@ -9,7 +9,7 @@ session_start();
 
 
 ///////for newUsers created by admin
-if(isset($_POST) && empty($_POST["id"]) && isset($_SESSION["login"])) {
+if(isset($_POST) && isset($_POST["id"]) && $_SESSION["login"] == "admin") {
 
     if (validate($_POST)) {
 
